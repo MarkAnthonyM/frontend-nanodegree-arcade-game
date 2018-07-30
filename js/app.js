@@ -29,7 +29,7 @@ class Player {
     this.sprite = 'images/char-boy.png';
   }
 
-  Player.prototype.render = function() {
+  render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 }
