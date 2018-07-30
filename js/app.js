@@ -29,6 +29,10 @@ class Player {
     this.sprite = 'images/char-boy.png';
   }
 
+  Update(dt) {
+    
+  }
+
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
