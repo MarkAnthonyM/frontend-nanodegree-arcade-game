@@ -28,6 +28,10 @@ class Player {
   constructor() {
     this.sprite = 'images/char-boy.png';
   }
+
+  Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
 }
 
 // Now instantiate your objects.
