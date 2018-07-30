@@ -29,8 +29,8 @@ class Player {
     this.sprite = 'images/char-boy.png';
   }
 
-  Update(dt) {
-    
+  update(dt) {
+
   }
 
   render() {
