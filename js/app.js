@@ -31,6 +31,34 @@ class Player {
     this.y = y;
   }
 
+  handleInput(input) {
+    if (input === 'up') {
+      if (this.y === (-17)) {
+        console.log(`At top boundry, not moving`);
+      } else {
+        this.y -= 80;
+      }
+    } else if (input === 'down') {
+      if (this.y === 383) {
+        console.log(`At bottom boundry, not moving`);
+      } else {
+        this.y += 80;
+      }
+    } else if (input === 'right') {
+      if (this.x === 404) {
+        console.log(`At right boundry, not moving`);
+      } else {
+        this.x += 101;
+      }
+    } else if (input === 'left') {
+      if (this.x === 0) {
+        console.log(`At left boundry, not moving`);
+      } else {
+        this.x -= 101;
+      }
+    }
+  }
+
   update(dt) {
 
   }
@@ -52,7 +80,7 @@ const player = new Player(202, 303);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function(e) {
+document.addEventListener('keydown', function(e) {
     var allowedKeys = {
         37: 'left',
         38: 'up',
