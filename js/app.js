@@ -59,6 +59,11 @@ class Player {
     }
   }
 
+  initLocation() {
+    this.x = 202;
+    this.y = 303;
+  }
+
   update(dt) {
 
   }
