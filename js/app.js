@@ -17,7 +17,7 @@ Enemy.prototype.generateRandomNumber = function(min, max) {
 };
 
 //Resets the location of instance this function is called on
-Enemy.prototype.initLocation(x = 0) = function() {
+Enemy.prototype.initLocation = function(x = 0) {
   this.x = x;
 };
 
