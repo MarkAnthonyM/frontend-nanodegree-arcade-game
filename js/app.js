@@ -10,6 +10,12 @@ var Enemy = function(x, y) {
     this.y = y;
 };
 
+//Provides a random number and returns it in a variable. Use is for
+//randomizing the speed of enemies as they move across screen
+Enemy.prototype.generateRandomNumber = function(min, max) {
+  return Math.random() * (max - min) + min;
+};
+
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
