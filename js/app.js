@@ -59,13 +59,16 @@ class Player {
     }
   }
 
+//Resets player location to beginning position when function called
   initLocation() {
     this.x = 202;
     this.y = 303;
   }
 
   update(dt) {
-
+    if (this.y === (-17)) {
+      this.initLocation();
+    }
   }
 
   render() {
