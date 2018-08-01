@@ -1,11 +1,25 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.x = x;
+    this.y = y;
+    this.randomSeed = Enemy.prototype.generateRandomNumber(200, 500);
+};
+
+//Provides a random number and returns it in a variable. Use is for
+//randomizing the speed of enemies as they move across screen
+Enemy.prototype.generateRandomNumber = function(min, max) {
+  return Math.random() * (max - min) + min;
+};
+
+//Resets the location of instance this function is called on
+Enemy.prototype.initLocation = function(x = 0) {
+  this.x = x;
 };
 
 // Update the enemy's position, required method for game
@@ -14,6 +28,13 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    if (this.x > 505) {
+      this.x = -101;
+      this.randomSeed = Enemy.prototype.generateRandomNumber(200, 500);
+      this.x += this.randomSeed * dt;
+    } else {
+      this.x += this.randomSeed * dt;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
