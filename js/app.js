@@ -16,6 +16,11 @@ Enemy.prototype.generateRandomNumber = function(min, max) {
   return Math.random() * (max - min) + min;
 };
 
+//Resets the location of instance this function is called on
+Enemy.prototype.initLocation(x = 0) = function() {
+  this.x = x;
+};
+
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
