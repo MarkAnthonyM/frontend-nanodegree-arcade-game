@@ -8,6 +8,7 @@ var Enemy = function(x, y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
+    this.randomSeed = Enemy.prototype.generateRandomNumber(200, 500);
 };
 
 //Provides a random number and returns it in a variable. Use is for
