@@ -8,6 +8,8 @@ var Enemy = function(x, y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
+    this.width = 101;
+    this.height = 171;
     this.randomSeed = Enemy.prototype.generateRandomNumber(200, 500);
 };
 
@@ -50,6 +52,8 @@ class Player {
     this.sprite = 'images/char-boy.png';
     this.x = x;
     this.y = y;
+    this.width = 101;
+    this.height = 171;
   }
 
   handleInput(input) {
