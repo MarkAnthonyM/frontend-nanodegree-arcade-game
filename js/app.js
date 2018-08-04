@@ -8,10 +8,18 @@ var Enemy = function(x, y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.width = 101;
-    this.height = 171;
+    this.width = 78;
+    this.height = 50;
     this.randomSeed = Enemy.prototype.generateRandomNumber(200, 500);
 };
+
+//Check Enemy bounding box against player bounding box for collision. Upon
+//collision detection, sends player back to starting point
+Enemy.prototype.checkCollisions = function() {
+  if (this.x + this.width > player.x && this.x < player.x + player.width && this.y + this.height > player.y && this.y < player.y + player.height) {
+    player.initLocation();
+  }
+}
 
 //Provides a random number and returns it in a variable. Use is for
 //randomizing the speed of enemies as they move across screen
@@ -37,6 +45,8 @@ Enemy.prototype.update = function(dt) {
     } else {
       this.x += this.randomSeed * dt;
     }
+
+    this.checkCollisions();
 };
 
 // Draw the enemy on the screen, required method for game
@@ -52,8 +62,8 @@ class Player {
     this.sprite = 'images/char-boy.png';
     this.x = x;
     this.y = y;
-    this.width = 101;
-    this.height = 171;
+    this.width = 78;
+    this.height = 50;
   }
 
   handleInput(input) {
