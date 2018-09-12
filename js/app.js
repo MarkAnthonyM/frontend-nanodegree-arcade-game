@@ -1,5 +1,7 @@
 const attemptEle = document.querySelector('.attempt-counter');
+const roundEle = document.querySelector('.round-counter');
 let count = 5;
+let gameRound = 1;
 
 // Enemies our player must avoid
 var Enemy = function(x, y) {
@@ -142,8 +144,20 @@ document.addEventListener('keydown', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-//This function will update attempt counter lower count by 1 when invoked
+/*******************
+GAME STATUS FUNCTIONS:
+  All functions that keep track of game status found here
+*******************/
+
+//This function will update attempt counter and lower count by 1 when invoked
 function attemptCount() {
   count--;
   attemptEle.innerText = 'Attempts left: ' + count;
+}
+
+//This function will update the game-round counter and raise it by one
+//when invoked
+function roundCount() {
+  gameRound++;
+  roundEle.innerText = 'Round: ' + gameRound;
 }
