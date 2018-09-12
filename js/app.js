@@ -1,5 +1,6 @@
 const attemptEle = document.querySelector('.attempt-counter');
 const roundEle = document.querySelector('.round-counter');
+const winScreen = document.getElementById('winModal');
 let count = 5;
 let gameRound = 1;
 
@@ -71,11 +72,6 @@ class Player {
     this.height = 50;
   }
 
-  attemptCount() {
-    count--;
-    attemptEle.innerText = 'Attempts left: ' + count;
-  }
-
   handleInput(input) {
     if (input === 'up') {
       if (this.y === (-17)) {
@@ -110,8 +106,11 @@ class Player {
     this.y = 303;
   }
 
+//Checks to see if player reaches the goal. If so, resets position and checks
+//to see if it was the gaming winning round
   update(dt) {
     if (this.y === (-17)) {
+      winCheck();
       this.initLocation();
     }
   }
@@ -160,4 +159,13 @@ function attemptCount() {
 function roundCount() {
   gameRound++;
   roundEle.innerText = 'Round: ' + gameRound;
+}
+
+//This function will check to see if game winning condition has been met
+function winCheck() {
+  if (gameRound === 4) {
+    showModal(winScreen);
+  } else {
+    roundCount();
+  }
 }
