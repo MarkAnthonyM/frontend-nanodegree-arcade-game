@@ -163,9 +163,18 @@ function roundCount() {
 
 //This function will check to see if game winning condition has been met
 function winCheck() {
-  if (gameRound === 4) {
+  if (gameRound === 3) {
     showModal(winScreen);
   } else {
     roundCount();
   }
+}
+
+/***************
+MODAL FUNCTIONS:
+  All functions involing modal usage declared here
+***************/
+
+function showModal(gameCondition) {
+  gameCondition.style.display = 'block';
 }
