@@ -1,6 +1,7 @@
 const attemptEle = document.querySelector('.attempt-counter');
 const roundEle = document.querySelector('.round-counter');
 const winScreen = document.getElementById('winModal');
+const loseScreen = document.getElementById('loseModal');
 let count = 5;
 let gameRound = 1;
 
@@ -24,6 +25,7 @@ var Enemy = function(x, y) {
 Enemy.prototype.checkCollisions = function() {
   if (this.x + this.width > player.x && this.x < player.x + player.width && this.y + this.height > player.y && this.y < player.y + player.height) {
     player.initLocation();
+    loseCheck();
   }
 }
 
@@ -167,6 +169,15 @@ function winCheck() {
     showModal(winScreen);
   } else {
     roundCount();
+  }
+}
+
+//This function will check to see if game losing condition has been met
+function loseCheck() {
+  if (count === 1) {
+    showModal(loseScreen);
+  } else {
+    attemptCount();
   }
 }
 
