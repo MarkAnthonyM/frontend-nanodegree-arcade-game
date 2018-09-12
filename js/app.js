@@ -1,3 +1,6 @@
+const attemptEle = document.querySelector('.attempt-counter');
+let count = 5;
+
 // Enemies our player must avoid
 var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
@@ -64,6 +67,11 @@ class Player {
     this.y = y;
     this.width = 78;
     this.height = 50;
+  }
+
+  attemptCount() {
+    count--;
+    attemptEle.innerText = 'Attempts left: ' + count;
   }
 
   handleInput(input) {
@@ -133,3 +141,9 @@ document.addEventListener('keydown', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+//This function will update attempt counter lower count by 1 when invoked
+function attemptCount() {
+  count--;
+  attemptEle.innerText = 'Attempts left: ' + count;
+}
