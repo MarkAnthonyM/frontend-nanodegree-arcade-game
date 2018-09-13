@@ -190,6 +190,7 @@ MODAL FUNCTIONS:
   All functions involing modal usage declared here
 ***************/
 
+//This function restarts game when button at win/lose screen is clicked
 function gameRestart(gameCondition, button) {
   button.onclick = function() {
     count = 5;
@@ -200,6 +201,7 @@ function gameRestart(gameCondition, button) {
   }
 }
 
+//This function triggers a modal when the game is won or lost
 function showModal(gameCondition) {
   gameCondition.style.display = 'block';
 }
