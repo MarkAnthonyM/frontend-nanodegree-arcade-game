@@ -1,3 +1,44 @@
 body {
     text-align: center;
 }
+
+h1 {
+  margin: 0px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-button {
+  color: #aaa;
+  background-color: black;
+  font-size: 28px;
+  font-weight: bold;
+  border-radius: 5px 5px 5px 5px;
+  border-color: white;
+}
+
+.modal-button:hover, .modal-button:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-title {
+  padding: 200px 100px 50px 100px;
+}
