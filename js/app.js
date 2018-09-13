@@ -2,6 +2,7 @@ const attemptEle = document.querySelector('.attempt-counter');
 const roundEle = document.querySelector('.round-counter');
 const winScreen = document.getElementById('winModal');
 const loseScreen = document.getElementById('loseModal');
+const closeModal = document.getElementsByClassName('modal-button')
 let count = 5;
 let gameRound = 1;
 
@@ -21,7 +22,8 @@ var Enemy = function(x, y) {
 };
 
 //Check Enemy bounding box against player bounding box for collision. Upon
-//collision detection, sends player back to starting point
+//collision detection, sends player back to starting point and
+//updates attempt stat
 Enemy.prototype.checkCollisions = function() {
   if (this.x + this.width > player.x && this.x < player.x + player.width && this.y + this.height > player.y && this.y < player.y + player.height) {
     player.initLocation();
@@ -167,6 +169,7 @@ function roundCount() {
 function winCheck() {
   if (gameRound === 3) {
     showModal(winScreen);
+    gameRestart(winScreen, closeModal[0]);
   } else {
     roundCount();
   }
@@ -176,6 +179,7 @@ function winCheck() {
 function loseCheck() {
   if (count === 1) {
     showModal(loseScreen);
+    gameRestart(loseScreen, closeModal[1]);
   } else {
     attemptCount();
   }
@@ -185,6 +189,16 @@ function loseCheck() {
 MODAL FUNCTIONS:
   All functions involing modal usage declared here
 ***************/
+
+function gameRestart(gameCondition, button) {
+  button.onclick = function() {
+    count = 5;
+    gameRound = 1;
+    attemptEle.innerText = 'Attempts left: ' + count;
+    roundEle.innerText = 'Round: ' + gameRound;
+    gameCondition.style.display = 'none';
+  }
+}
 
 function showModal(gameCondition) {
   gameCondition.style.display = 'block';
