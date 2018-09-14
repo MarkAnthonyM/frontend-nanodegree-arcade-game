@@ -1,3 +1,4 @@
+'use strict';
 const attemptEle = document.querySelector('.attempt-counter');
 const roundEle = document.querySelector('.round-counter');
 const winScreen = document.getElementById('winModal');
@@ -18,7 +19,7 @@ var Enemy = function(x, y) {
     this.y = y;
     this.width = 78;
     this.height = 50;
-    this.randomSeed = Enemy.prototype.generateRandomNumber(200, 500);
+    this.randomSeed = this.generateRandomNumber(200, 500);
 };
 
 //Check Enemy bounding box against player bounding box for collision. Upon
@@ -50,7 +51,7 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     if (this.x > 505) {
       this.x = -101;
-      this.randomSeed = Enemy.prototype.generateRandomNumber(200, 500);
+      this.randomSeed = this.generateRandomNumber(200, 500);
       this.x += this.randomSeed * dt;
     } else {
       this.x += this.randomSeed * dt;
@@ -127,10 +128,11 @@ class Player {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const enemy1 = new Enemy(0, 223);
-const enemy2 = new Enemy(0, 143);
-const enemy3 = new Enemy(0, 63);
-const allEnemies = [enemy1, enemy2, enemy3];
+const allEnemies = [
+  new Enemy(0, 223),
+  new Enemy(0, 143),
+  new Enemy(0, 63)
+];
 
 const player = new Player(202, 303);
 
