@@ -4,6 +4,8 @@ This is a clone of the famous arcade game _frogger_.
 ## How to run the game
 Launch the game by running the index.html file located in the game folder.
 
+You can also play the live version of the game hosted on github by clicking on this link: https://markanthonym.github.io/frontend-nanodegree-arcade-game/
+
 ## How to play
 The game starts as soon as you launch the game. Your goal is to get to the water on the other side of the map while avoiding the beetles zipping across the screen.
 
